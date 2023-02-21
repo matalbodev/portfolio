@@ -1,13 +1,16 @@
 "use client";
+
+import styles from "./button.module.scss";
+
 type ButtonProps = {
-	href: string;
 	className?: string;
 	children: React.ReactNode;
+	type?: "submit" | "reset";
 };
 
-const Button: React.FC<ButtonProps> = ({ children, href, className }) => {
+const Button: React.FC<ButtonProps> = ({ children, type, className }) => {
 	return (
-		<button type="button" onClick={() => console.log("clicked")} className={`btn`}>
+		<button type={type || "button"} onClick={() => console.log("clicked")} className={`${styles.btn} ${styles["btn--primary"]}`}>
 			{children}
 		</button>
 	);
