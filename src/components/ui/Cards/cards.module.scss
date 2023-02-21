@@ -1,0 +1,66 @@
+@import "../../../styles/vars";
+
+@keyframes floating {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+.card {
+	max-width: 360px;
+	border-radius: 20px;
+	box-shadow: 0 0 60px rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+	// simulate floating
+	//animation: floating 3s ease-in-out infinite;
+}
+
+.card__image {
+	background-image: linear-gradient(to bottom, $pink, $orange);
+	height: 200px;
+}
+
+.card__title {
+	color: $orange;
+	font-size: 1.5rem;
+}
+
+.card__content {
+	padding: 1rem 2rem;
+	background-color: rgba($color: #1e2530, $alpha: 0.3);
+	position: relative;
+	z-index: 1;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0rem;
+		left: 3rem;
+		width: 100%;
+		height: 100%;
+		background-image: url("./light-card.png");
+		// blur(10px) is a CSS filter that blurs the image
+		filter: blur(10px);
+		background-size: cover;
+		background-position: center;
+		opacity: 0.4;
+		z-index: -1;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 1rem;
+		left: 1.5rem;
+		width: 100%;
+		height: 100%;
+		background-image: url("../../../../public/bg-hero-noisy.png");
+		z-index: -1;
+		opacity: 1;
+	}
+}

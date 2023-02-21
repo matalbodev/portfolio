@@ -1,0 +1,64 @@
+body {
+	background-color: #171c24;
+	font-family: "Inter", sans-serif;
+	color: #fff;
+	margin: 0;
+}
+
+// reset hn default
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	font-size: 100%;
+}
+
+p {
+	line-height: 2;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.bg-hero_svg__light {
+	animation: light 5s ease-in-out 0s infinite;
+}
+
+@keyframes light {
+	// go repeat from left to right without seeing the go back
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+.blur-before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 5rem;
+		transform: translateY(-50%);
+		width: 500px;
+		height: 500px;
+		background-color: $orange;
+		filter: blur(30px);
+		opacity: 0.2;
+		z-index: -1;
+		border-radius: 50%;
+	}
+}

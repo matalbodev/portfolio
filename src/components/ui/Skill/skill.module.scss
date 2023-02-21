@@ -1,0 +1,55 @@
+@import "@/styles/vars";
+.skill {
+	// border gradient
+	border: 2px solid;
+	border-color: $pink;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	padding: 0.5rem 1.5rem 0.5rem 1rem;
+	position: relative;
+	z-index: 1;
+	font-weight: 600;
+	border-radius: 45px;
+	img {
+		margin-right: 16px;
+	}
+}
+
+.skill__bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: max-width 0.3s ease-in-out;
+	background-image: linear-gradient(to right, $orange, $pink);
+	opacity: 0.5;
+	z-index: -1;
+}
+
+.skill__xp {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: max-width 0.3s ease-in-out;
+	background-image: linear-gradient(to right, $pink, $orange);
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.skill:hover {
+	.skill__bg {
+		max-width: 0;
+	}
+	.skill__xp {
+		opacity: 1;
+		max-width: 100%;
+	}
+}
