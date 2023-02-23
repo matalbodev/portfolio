@@ -1,13 +1,13 @@
 "use client";
-import { ConvertedSkills } from "@/types/skills";
+import { ConvertedSkill, ConvertedSkills } from "@/types/skills";
 import Skill from "@/components/ui/Skill/Skill";
 import Text from "@/components/ui/Text/Text";
 import { useEffect, useState } from "react";
 import Button from "../ui/Button/Button";
 import useScrollTo from "@/hooks/useScrollTo";
-type PropsTypes = {
-	skills: ConvertedSkills;
-};
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Vibrate: React.FC<{
 	vibrate: boolean;
@@ -16,9 +16,9 @@ const Vibrate: React.FC<{
 	return <div className={`vibrate${vibrate ? " vibrate-animate" : ""}`}>{children}</div>;
 };
 
-const Skills: React.FC<PropsTypes> = ({ skills }) => {
+const Skills: React.FC = () => {
+	const { data: skills } = useSWR("/api/skills", fetcher);
 	const count = skills?.length || 0;
-
 	const scrollTo = useScrollTo();
 	const [random, setRandom] = useState(0);
 	useEffect(() => {
@@ -43,7 +43,7 @@ const Skills: React.FC<PropsTypes> = ({ skills }) => {
 				}}
 			>
 				{skills?.length > 0
-					? skills.map((skill, index) => {
+					? skills.map((skill: ConvertedSkill, index: number) => {
 							return (
 								<div
 									key={index}
