@@ -6,7 +6,7 @@ import Contact from "@/components/section/Contact";
 import ParallaxContainer from "@/components/layout/Parallax/Container";
 async function getSkills() {
 	const res = await fetch("http://localhost:3000/api/skills", { cache: "no-store" });
-	if (!res.ok) throw new Error("An error occured");
+	if (!res.ok) console.error("Error while fetching skills");
 	return res.json();
 }
 
