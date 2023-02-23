@@ -18,15 +18,18 @@ const Contact: React.FC = () => {
 				position: "relative",
 			}}
 		>
-			<Text type="h2" size="xl">
-				Contact
+			<Text type="h2" size="2xl">
+				Let&apos;s talk !
+			</Text>
+			<Text type="p" size="lg" spaceBottom>
+				<span className="text-pink">Faites décoller la fusée :-)</span>
 			</Text>
 
 			<div className="grid items-center">
-				<div className="grid-col size-2/3">
+				<div className="grid-col md:size-1/2 lg:size-2/3">
 					<FormsHOC fields={fields} getSent={getSent} />
 				</div>
-				<div className="grid-col size-1/3 text-center">
+				<div className="grid-col md:size-1/2 lg:size-1/3 text-center">
 					<div className={`${sent ? "lauching-rocket" : ""}`}>
 						<Image
 							style={{

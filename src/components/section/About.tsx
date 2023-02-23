@@ -4,8 +4,8 @@ import Text from "@/components/ui/Text/Text";
 const About: React.FC = () => {
 	return (
 		<>
-			<Text type="h2" size="xl">
-				À propos de moi
+			<Text type="h2" size="xl" spaceBottom>
+				À propos
 			</Text>
 			<div className="flex items-center space-x-8">
 				<Card

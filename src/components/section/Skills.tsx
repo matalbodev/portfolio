@@ -3,6 +3,8 @@ import { ConvertedSkills } from "@/types/skills";
 import Skill from "@/components/ui/Skill/Skill";
 import Text from "@/components/ui/Text/Text";
 import { useEffect, useState } from "react";
+import Button from "../ui/Button/Button";
+import useScrollTo from "@/hooks/useScrollTo";
 type PropsTypes = {
 	skills: ConvertedSkills;
 };
@@ -16,6 +18,8 @@ const Vibrate: React.FC<{
 
 const Skills: React.FC<PropsTypes> = ({ skills }) => {
 	const count = skills?.length || 0;
+
+	const scrollTo = useScrollTo();
 	const [random, setRandom] = useState(0);
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -29,11 +33,8 @@ const Skills: React.FC<PropsTypes> = ({ skills }) => {
 	}, [count]);
 	return (
 		<>
-			<Text type="h2" size="xl">
-				Compétences
-			</Text>
-			<Text type="h3" size="lg">
-				Languages et technologies
+			<Text type="h2" size="xl" spaceBottom>
+				Mes skills ;-)
 			</Text>
 			<div
 				className="flex items-center"
@@ -57,6 +58,17 @@ const Skills: React.FC<PropsTypes> = ({ skills }) => {
 							);
 					  })
 					: "No skills found"}
+			</div>
+			<div className="cta">
+				<Text type="p" size="lg" spaceBottom spaceTop>
+					Intéressé par mes <strong>compétences</strong> ?
+				</Text>
+				<div className="flex items-center space-x-4">
+					<Button action={() => scrollTo("#contact")}>Contactez moi</Button>
+					<Button href="https://www.linkedin.com/in/mathieu-albor%C3%A9-301069112/" className="btn--border-primary" blank>
+						Mon linkedin
+					</Button>
+				</div>
 			</div>
 		</>
 	);

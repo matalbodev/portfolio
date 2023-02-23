@@ -26,7 +26,7 @@ const Card: React.FC<PropsType> = ({ title, content, img }) => {
 			</div>
 			<div className={styles.card__content}>
 				<h3 className={styles.card__title}>{title}</h3>
-				<p className="card__text">{content}</p>
+				<p className={styles.card__text}>{content}</p>
 			</div>
 		</div>
 	);

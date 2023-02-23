@@ -14,6 +14,16 @@
 	img {
 		margin-right: 16px;
 	}
+
+	&:hover {
+		transition: all 0.3s ease-in-out;
+		border-color: $orange;
+		[class*="skill_skill__xp__"] {
+			opacity: 1;
+			max-width: 100%;
+			cursor: pointer;
+		}
+	}
 }
 
 .skill__bg {
