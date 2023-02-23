@@ -16,8 +16,8 @@
 	border-radius: 20px;
 	box-shadow: 0 0 60px rgba(0, 0, 0, 0.4);
 	overflow: hidden;
-	// simulate floating
-	//animation: floating 3s ease-in-out infinite;
+	// overflow hidden on ios devices
+	-webkit-overflow-scrolling: touch;
 }
 
 .card__image {
@@ -30,8 +30,12 @@
 	font-size: 1.5rem;
 }
 
+.card__text {
+	margin-bottom: 0;
+}
+
 .card__content {
-	padding: 1rem 2rem;
+	padding: 2rem;
 	background-color: rgba($color: #1e2530, $alpha: 0.3);
 	position: relative;
 	z-index: 1;
