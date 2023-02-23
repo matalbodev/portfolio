@@ -6,13 +6,19 @@ type TextProps = {
 	props?: any;
 	children: React.ReactNode;
 	size?: "sm" | "base" | "md" | "lg" | "xl" | "2xl";
+	spaceBottom?: boolean;
+	spaceTop?: boolean;
 };
-const Text: React.FC<TextProps> = ({ type, props, children, size }) => {
+const Text: React.FC<TextProps> = ({ type, props, children, size, spaceBottom, spaceTop }) => {
 	return React.createElement(
 		type,
 		{
 			...props,
 			className: styles[`text-${size || "base"}`],
+			style: {
+				marginBottom: spaceBottom ? "2rem" : "0",
+				marginTop: spaceTop ? "1rem" : "0",
+			},
 		},
 		children
 	);

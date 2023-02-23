@@ -19,7 +19,7 @@ const Skill: React.FC<PropsTypes> = ({ skill, isFakeHover }) => {
 			<div className="skill__title">{skill.name}</div>
 			<div
 				style={{
-					opacity: isFakeHover ? 1 : 0,
+					opacity: isFakeHover ? 1 : undefined,
 				}}
 				className={styles.skill__xp}
 			>{`${skill.xp} ans d'XP`}</div>

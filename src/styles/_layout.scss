@@ -1,6 +1,5 @@
 .container {
 	max-width: 1024px;
-	width: 100%;
 
 	margin: 0 auto;
 	padding: 0 20px;
@@ -16,7 +15,7 @@
 
 .space-x-4 {
 	& > * + * {
-		margin-left: 2rem;
+		margin-left: 1rem;
 	}
 }
 

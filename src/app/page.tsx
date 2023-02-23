@@ -14,29 +14,31 @@ export default async function Home() {
 	const skills = await getSkills();
 	return (
 		<main>
-			<Hero />
 			<ParallaxContainer bg={<div className="blur-before"></div>}>
-				<div className="container">
-					<div className="flex space-x-8 mt-8">
-						<div
-							style={{
-								flex: "0 0 35%",
-								width: "35%",
-							}}
-						>
+				<Hero />
+				<div
+					className="container"
+					style={{
+						marginBottom: "6rem",
+					}}
+				>
+					<div className="grid">
+						<div className="grid-col md:size-1/2 lg:size-1/3">
 							<SectionHOC id="about" fullWidth>
 								<About />
 							</SectionHOC>
 						</div>
-						<SectionHOC id="skills" fullWidth>
-							<Skills skills={skills} />
-						</SectionHOC>
+						<div className="grid-col md:size-1/2 lg:size-2/3">
+							<SectionHOC id="skills" fullWidth>
+								<Skills skills={skills} />
+							</SectionHOC>
+						</div>
 					</div>
 				</div>
+				<SectionHOC id="contact">
+					<Contact />
+				</SectionHOC>
 			</ParallaxContainer>
-			<SectionHOC id="contact">
-				<Contact />
-			</SectionHOC>
 		</main>
 	);
 }

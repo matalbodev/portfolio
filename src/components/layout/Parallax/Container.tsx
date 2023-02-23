@@ -10,12 +10,14 @@ const ParallaxContainer: React.FC<PropsTypes> = ({ children, bg }) => {
 	const blurParallaxRef = useRef<HTMLDivElement>(null);
 	const onScroll = (ref: any) => {
 		// scroll speed
-		const ratio = 0.2;
+		const ratio = 0.01;
 		// simulate parallax effect
 		const scroll = window.scrollY;
+
+		console.log(scrollY);
 		// move the div up and down
 		const translateY = Math.round(scroll * ratio);
-		ref.style.transform = `translateY(${translateY}px)`;
+		ref.style.transform = `translateY(${translateY}%)`;
 	};
 
 	useEffect(() => {
@@ -28,6 +30,7 @@ const ParallaxContainer: React.FC<PropsTypes> = ({ children, bg }) => {
 		<div
 			style={{
 				position: "relative",
+				overflow: "hidden",
 				zIndex: 1,
 			}}
 		>

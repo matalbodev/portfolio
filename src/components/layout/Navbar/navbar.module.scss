@@ -1,5 +1,7 @@
 .nav-main {
-	margin-left: 2rem;
+	@media screen and (min-width: 768px) {
+		margin-left: 2rem;
+	}
 }
 
 .nav-list {
@@ -7,8 +9,6 @@
 	align-items: center;
 }
 
-.nav-list-item {
-}
 .nav-list-item-link {
 	display: block;
 	color: #fff;

@@ -1,8 +1,10 @@
 @import "../../../styles/vars";
 .hero {
 	position: relative;
-	padding-top: 8rem;
 	z-index: 1;
+	padding-top: 8rem;
+	padding-bottom: 8rem;
+
 	/* 	&::before {
 		content: "";
 		position: absolute;
@@ -21,15 +23,26 @@
 		align-items: center;
 	}
 	h1 {
-		font-size: 4rem;
 		display: block;
 		font-weight: 700;
-		margin: 4rem 0 4rem 0;
+		margin: 2rem 0 2rem 0;
 		background: $orange -webkit-linear-gradient(43deg, $pink 0%, $orange 100%);
 		background-image: linear-gradient(43deg, $pink 0%, $orange 100%);
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
+		font-size: 2.5rem;
+
+		> span {
+			-webkit-background-clip: none;
+			background-clip: none;
+			-webkit-text-fill-color: white;
+			color: white;
+		}
+
+		@media screen and (min-width: 768px) {
+			font-size: 4rem;
+		}
 	}
 }
 
@@ -58,26 +71,30 @@
 
 .bg-hero {
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 85%;
-	height: 100%;
+	top: 50%;
+	left: 50%;
+	max-width: 1024px;
+	width: 100%;
+	height: calc(100% - 16rem);
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: flex-end;
-	padding-top: 8rem;
 	z-index: -1;
+	transform: translate(-50%, -50%);
 }
 .blob {
+	@media screen and (max-width: 768px) {
+		opacity: 0.3;
+	}
 	z-index: -1;
-	animation: move 20s ease-in-out infinite;
 	transform-origin: 50% 50%;
 	margin-left: auto;
-	width: 500px;
-	height: 500px;
+	opacity: 1;
+	overflow: hidden;
 	svg {
-		width: 100%;
-		height: 100%;
+		width: 500px;
+		height: 500px;
+		animation: move 20s ease-in-out infinite;
 		> path {
 			box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.9);
 		}
@@ -95,150 +112,12 @@
 		transform: scale(0.9, 1) rotate(160deg);
 	}
 	78% {
-		transform: scale(1.3) rotate(-20deg);
+		transform: scale(0.7) rotate(-20deg);
 	}
 	80% {
-		transform: scale(1.3) rotate(-20deg);
+		transform: scale(0.7) rotate(-20deg);
 	}
 	100% {
 		transform: scale(1);
-	}
-}
-
-// parralax
-// Parallax
-$parallax-deg: 2deg !default;
-$parallax-offset: 4.5px !default;
-$parallax-offset-z: 80px !default;
-$parallax-perspective: 1000px !default;
-$parallax-scale: 0.95 !default;
-$parallax-fade-color: rgba(255, 255, 255, 0.35) !default;
-
-// Mixin: Parallax direction
-@mixin parallax-dir() {
-	height: 50%;
-	outline: none;
-	position: absolute;
-	width: 50%;
-	z-index: 1;
-}
-
-.parallax {
-	display: block;
-	height: auto;
-	position: relative;
-	width: auto;
-
-	.parallax-content {
-		height: auto;
-		transform: perspective($parallax-perspective);
-		transform-style: preserve-3d;
-		transition: all 0.4s ease;
-		width: 100%;
-
-		&::before {
-			content: "";
-			display: block;
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
-		}
-	}
-
-	.parallax-back {
-		margin-left: auto;
-	}
-
-	.parallax-front {
-		/* 		align-items: center;
-		display: flex;
-		height: 100%;
-		justify-content: center;
-		left: 0;
-		position: absolute;
-		text-align: center; */
-		top: 0;
-		transform: translateZ($parallax-offset-z) scale($parallax-scale);
-		transition: transform 0.4s;
-		width: 100%;
-		z-index: 1;
-	}
-
-	.parallax-top-left {
-		@include parallax-dir();
-		left: 0;
-		top: 0;
-
-		&:focus ~ .parallax-content,
-		&:hover ~ .parallax-content {
-			transform: perspective($parallax-perspective) rotateX($parallax-deg) rotateY(-$parallax-deg);
-
-			/* 			&::before {
-				background: linear-gradient(135deg, $parallax-fade-color 0%, transparent 50%);
-			} */
-
-			.parallax-front {
-				transform: translate3d($parallax-offset, $parallax-offset, $parallax-offset-z) scale($parallax-scale);
-			}
-		}
-	}
-
-	.parallax-top-right {
-		@include parallax-dir();
-		right: 0;
-		top: 0;
-
-		&:focus ~ .parallax-content,
-		&:hover ~ .parallax-content {
-			transform: perspective($parallax-perspective) rotateX($parallax-deg) rotateY($parallax-deg);
-
-			/* 			&::before {
-				background: linear-gradient(-135deg, $parallax-fade-color 0%, transparent 50%);
-			} */
-
-			.parallax-front {
-				transform: translate3d(-$parallax-offset, $parallax-offset, $parallax-offset-z) scale($parallax-scale);
-			}
-		}
-	}
-
-	.parallax-bottom-left {
-		@include parallax-dir();
-		bottom: 0;
-		left: 0;
-
-		&:focus ~ .parallax-content,
-		&:hover ~ .parallax-content {
-			transform: perspective($parallax-perspective) rotateX(-$parallax-deg) rotateY(-$parallax-deg);
-
-			/* 			&::before {
-				background: linear-gradient(45deg, $parallax-fade-color 0%, transparent 50%);
-			} */
-
-			.parallax-front {
-				transform: translate3d($parallax-offset, -$parallax-offset, $parallax-offset-z) scale($parallax-scale);
-			}
-		}
-	}
-
-	.parallax-bottom-right {
-		@include parallax-dir();
-		bottom: 0;
-		right: 0;
-
-		&:focus ~ .parallax-content,
-		&:hover ~ .parallax-content {
-			transform: perspective($parallax-perspective) rotateX(-$parallax-deg) rotateY($parallax-deg);
-
-			/* 		&::before {
-				background: linear-gradient(-45deg, $parallax-fade-color 0%, transparent 50%);
-			} */
-
-			.parallax-front {
-				transform: translate3d(-$parallax-offset, -$parallax-offset, $parallax-offset-z) scale($parallax-scale);
-			}
-		}
 	}
 }
