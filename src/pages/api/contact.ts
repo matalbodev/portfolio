@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	let nodemailer = require("nodemailer");
+	let error;
 	const transporter = nodemailer.createTransport({
 		port: process.env.MAIL_PORT,
 		host: process.env.MAIL_HOST,
@@ -13,24 +14,30 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	});
 	const { name, email, message } = req.body;
 
-	if (!name || !email || !message) {
-		return res.status(400).json({ error: "Missing body parameter" });
-	}
+	const MAIL_BODY = `
+    <h1>Message from ${name} (${email})</h1>
+    <p>${message}</p>
+  `;
 
 	transporter.sendMail(
 		{
-			from: process.env.MAIL_FROM,
+			from: email,
 			to: process.env.MAIL_TO,
 			subject: `Message from ${name} (${email})`,
-			text: message,
+			text: MAIL_BODY,
 		},
 		(err: unknown, info: unknown) => {
 			if (err) {
-				console.log(err);
-				return res.status(500).json({ error: "Internal server error" });
+				error = err;
+			} else {
+				console.log(info);
 			}
-			console.log(info);
-			return res.status(200).json({ message: "Message sent successfully!" });
 		}
 	);
+
+	if (error) {
+		return res.status(500).json({ error: "Message not sent" });
+	}
+
+	return res.status(200).json({ message: `Message sent to ${process.env.MAIL_TO}` });
 }

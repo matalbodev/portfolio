@@ -1,9 +1,9 @@
 "use client";
-import { Skill } from "@/types/commons";
+import { ConvertedSkill } from "@/types/skills";
 import styles from "./skill.module.scss";
 import Image from "next/image";
 type PropsTypes = {
-	skill: Skill;
+	skill: ConvertedSkill;
 	isFakeHover?: boolean;
 };
 const Skill: React.FC<PropsTypes> = ({ skill, isFakeHover }) => {
@@ -15,7 +15,7 @@ const Skill: React.FC<PropsTypes> = ({ skill, isFakeHover }) => {
 					maxWidth: skill.xp * 10 + "%",
 				}}
 			></div>
-			<Image src={skill.icon} alt={skill.name} width={30} height={30} />
+			{skill.icon && <Image src={skill.icon} alt={skill.name} width={30} height={30} />}
 			<div className="skill__title">{skill.name}</div>
 			<div
 				style={{
