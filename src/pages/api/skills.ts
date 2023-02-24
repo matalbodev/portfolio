@@ -39,13 +39,13 @@ const MockSkills = [
 
 const convertSkills = (skills: DBSkillsType) => {
 	const config = getConfig();
-	const API_HOST = config.publicRuntimeConfig.apiHost;
+	const IMAGES_HOST = config?.publicRuntimeConfig?.imagesHost || "";
 	return skills.data.map((skill) => {
 		const iconUrl = skill.attributes.icon?.data?.attributes?.url;
 		return {
 			name: skill.attributes.name,
 			xp: skill.attributes.experience,
-			icon: iconUrl ? `${API_HOST}${iconUrl}` : null,
+			icon: iconUrl ? `${IMAGES_HOST}${iconUrl}` : null,
 		};
 	});
 };
