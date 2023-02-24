@@ -4,18 +4,14 @@ import SectionHOC from "@/components/section/HOC";
 import Skills from "@/components/section/Skills";
 import Contact from "@/components/section/Contact";
 import ParallaxContainer from "@/components/layout/Parallax/Container";
+import Experiences from "@/components/section/Experiences";
 
 export default async function Home() {
 	return (
 		<main>
 			<ParallaxContainer bg={<div className="blur-before"></div>}>
 				<Hero />
-				<div
-					className="container"
-					style={{
-						marginBottom: "6rem",
-					}}
-				>
+				<div className="container">
 					<div className="grid">
 						<div className="grid-col md:size-1/2 lg:size-1/3">
 							<SectionHOC id="about" fullWidth>
@@ -29,6 +25,9 @@ export default async function Home() {
 						</div>
 					</div>
 				</div>
+				<SectionHOC id="experiences">
+					<Experiences />
+				</SectionHOC>
 				<SectionHOC id="contact">
 					<Contact />
 				</SectionHOC>

@@ -26,12 +26,15 @@
 }
 
 .card__title {
-	color: $orange;
 	font-size: 1.5rem;
 }
 
 .card__text {
 	margin-bottom: 0;
+}
+
+.card__tags {
+	margin-top: 1rem;
 }
 
 .card__content {

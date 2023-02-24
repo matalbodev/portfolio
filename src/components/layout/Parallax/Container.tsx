@@ -14,7 +14,6 @@ const ParallaxContainer: React.FC<PropsTypes> = ({ children, bg }) => {
 		// simulate parallax effect
 		const scroll = window.scrollY;
 
-		console.log(scrollY);
 		// move the div up and down
 		const translateY = Math.round(scroll * ratio);
 		ref.style.transform = `translateY(${translateY}%)`;
