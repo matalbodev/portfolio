@@ -1,4 +1,5 @@
 import { DBSkillsType } from "@/types/skills";
+import { API_HOST } from "@/utils/api";
 import { fetcher } from "@/utils/api";
 import { NextApiRequest, NextApiResponse } from "next";
 // import next config
@@ -57,7 +58,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		skills = await fetcher("api/skills?populate[0]=icon", (method as "GET" | "POST" | "PUT" | "DELETE") || "GET");
 	} catch (error: unknown) {
 		if (error instanceof Error) {
-			return res.status(500).json({ error: error.message });
+			return res.status(500).json({ error: error.message, apiHost: API_HOST });
 		}
 		return res.status(500).json({ error: "Unknown error" });
 	}
