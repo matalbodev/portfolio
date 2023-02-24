@@ -11,12 +11,7 @@ export default async function Home() {
 		<main>
 			<ParallaxContainer bg={<div className="blur-before"></div>}>
 				<Hero />
-				<div
-					className="container"
-					style={{
-						marginBottom: "6rem",
-					}}
-				>
+				<div className="container">
 					<div className="grid">
 						<div className="grid-col md:size-1/2 lg:size-1/3">
 							<SectionHOC id="about" fullWidth>
