@@ -57,7 +57,7 @@ const Skills: React.FC = () => {
 								</div>
 							);
 					  })
-					: "No skills found"}
+					: "Chargement de mes supers compétences..."}
 			</div>
 			<div className="cta">
 				<Text type="p" size="lg" spaceBottom spaceTop>
