@@ -29,8 +29,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		(err: unknown, info: unknown) => {
 			if (err) {
 				error = err;
-			} else {
-				console.log(info);
 			}
 		}
 	);

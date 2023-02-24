@@ -7,9 +7,11 @@ const nextConfig = {
 	publicRuntimeConfig: {
 		// Will be available on both server and client
 		apiHost: process.env.API_HOST || "http://localhost:1337",
+		apiToken: process.env.API_TOKEN || "strapi-token",
+		imagesHost: process.env.IMAGES_HOST || "http://localhost:1337",
 	},
 	images: {
-		domains: ["localhost"],
+		domains: ["localhost", "strapi-uploads-matalbo.s3.amazonaws.com"],
 	},
 	webpack: (config, options) => {
 		config.module.rules.push({

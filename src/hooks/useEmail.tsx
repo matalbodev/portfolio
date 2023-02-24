@@ -85,7 +85,6 @@ const useEmail = () => {
 			if (key === "email" && value.length > 0) {
 				const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 				if (!emailRegex.test(value as string)) {
-					console.log("not ok");
 					errors.set(key, "Veuillez entrer une adresse email valide");
 				}
 			}
@@ -106,7 +105,6 @@ const useEmail = () => {
 		const errorsArray = Array.from(errors.entries());
 		// if errors, set errors
 		if (errorsArray.length > 0) {
-			console.log("errors", errors);
 			setLoading(false);
 			setErrors((prev) => ({ ...prev, status: true, errors }));
 			return;

@@ -19,7 +19,8 @@ export default function Hero() {
 					<p className={styles.subhero}>Mathieu Alboré</p>
 					<h1>
 						Développeur <br /> Front-end&nbsp;
-						<TypeAnimation sequence={["Javascript", 1300, "React", 1300, "Css", 1300, "Typescript", 1300]} wrapper="span" repeat={Infinity} />
+						<br />
+						<TypeAnimation sequence={["Javascript", 1300, "React JS", 1300, "Css", 1300, "Typescript", 1300]} wrapper="span" repeat={Infinity} />
 					</h1>
 					<div className="space-x-4 flex items-center">
 						<Button action={() => scrollTo("#contact")}>Contactez-moi</Button>

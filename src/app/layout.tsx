@@ -3,8 +3,8 @@ import Header from "../components/layout/Header/Header";
 import "../styles/main.scss";
 
 const navLinks = [
-	{ label: "About", href: "#about" },
-	{ label: "Skills", href: "#skills" },
+	{ label: "À propos", href: "#about" },
+	{ label: "Projets", href: "#experiences" },
 	{ label: "Contact", href: "#contact" },
 ];
 export default function RootLayout({ children }: { children: React.ReactNode }) {

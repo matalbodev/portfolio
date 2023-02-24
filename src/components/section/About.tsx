@@ -10,7 +10,7 @@ const About: React.FC = () => {
 			<div className="flex items-center space-x-8">
 				<Card
 					title="Bonjour !"
-					content="Depuis 10 ans je suis passionné par le développement web et je suis auto-didacte. Je maitrise aujourd'hui les technologies du web telles que HTML, CSS, JavaScript, React, Next.js..."
+					content="Depuis 10 ans je suis passionné par le développement web et je suis auto-didacte. Après avoir pu travailler pour plus de 30 clients et projets différents, je maitrise aujourd'hui les technologies du web telles que HTML, CSS, JavaScript, React, Next.js..."
 					img={"/portrait.png"}
 				/>
 			</div>
