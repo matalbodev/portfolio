@@ -5,10 +5,10 @@
 	padding-top: 8rem;
 	@media screen and (min-width: 840px) {
 		padding-top: 8rem;
-		padding-bottom: 8rem;
+		padding-bottom: 4rem;
 	}
 
-	/* 	&::before {
+	&::before {
 		content: "";
 		position: absolute;
 		top: 0;
@@ -18,9 +18,9 @@
 		background: url("/bg-hero-noisy.png") no-repeat center center;
 		background-blend-mode: multiply;
 		mix-blend-mode: multiply;
-		opacity: 0.8;
+		opacity: 0.5;
 		z-index: -1;
-	} */
+	}
 	.container {
 		display: flex;
 		align-items: center;
