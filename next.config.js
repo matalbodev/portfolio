@@ -7,6 +7,7 @@ const nextConfig = {
 	publicRuntimeConfig: {
 		// Will be available on both server and client
 		apiHost: process.env.API_HOST || "http://localhost:1337",
+		apiToken: process.env.API_TOKEN || "strapi-token",
 		imagesHost: process.env.IMAGES_HOST || "http://localhost:1337",
 	},
 	images: {
