@@ -3,4 +3,8 @@
 	position: absolute;
 	left: 0;
 	width: 100%;
+	z-index: 100;
+	img {
+		margin-right: 16px;
+	}
 }

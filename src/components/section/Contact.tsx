@@ -17,6 +17,7 @@ const Contact: React.FC = () => {
 				zIndex: 1,
 				position: "relative",
 			}}
+			className="mt-8"
 		>
 			<Text type="h2" size="2xl">
 				Let&apos;s talk !
