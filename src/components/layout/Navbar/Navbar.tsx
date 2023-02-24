@@ -16,7 +16,15 @@ const Navbar: React.FC<NavbarProps> = ({ items }) => {
 			<ul className={styles["nav-list"]}>
 				{items.map((item: NavItem, index: number) => (
 					<li key={index}>
-						<Link className={styles["nav-list-item-link"]} href={item.href} onClick={() => scrollTo(item.href)} passHref>
+						<Link
+							className={styles["nav-list-item-link"]}
+							href={item.href}
+							onClick={(e) => {
+								e.preventDefault();
+								scrollTo(item.href);
+							}}
+							passHref
+						>
 							{item.label}
 						</Link>
 					</li>
