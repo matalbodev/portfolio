@@ -4,6 +4,7 @@ import SectionHOC from "@/components/section/HOC";
 import Skills from "@/components/section/Skills";
 import Contact from "@/components/section/Contact";
 import ParallaxContainer from "@/components/layout/Parallax/Container";
+import Experiences from "@/components/section/Experiences";
 
 export default async function Home() {
 	return (
@@ -29,6 +30,9 @@ export default async function Home() {
 						</div>
 					</div>
 				</div>
+				<SectionHOC id="experiences">
+					<Experiences />
+				</SectionHOC>
 				<SectionHOC id="contact">
 					<Contact />
 				</SectionHOC>
